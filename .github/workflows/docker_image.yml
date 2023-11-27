@@ -14,16 +14,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Login to DockerHub Registry
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
 
     - name: Build the Docker image
-      run: docker build -t shahmeer312/devOps_q1_a4 .
-
-    - name: Log in to DockerHub
-      run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  
+      run: docker build -t shahmeer312/devops_a-04_q-01 .
 
     - name: Push the Docker image
-      run: docker push shahmeer312/devOps_q1_a4
+      run: docker push shahmeer312/devops_a-04_q-01
