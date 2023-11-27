@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Build the Docker image
-      run: docker build -t shahmeer312/DevOps_Q1_A4 .
+      run: docker build -t shahmeer312/devOps_q1_a4 .
 
     - name: Log in to DockerHub
       run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -26,4 +26,4 @@ jobs:
   
 
     - name: Push the Docker image
-      run: docker push shahmeer312/DevOps_Q1_A4
+      run: docker push shahmeer312/devOps_q1_a4
